@@ -6,6 +6,11 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 const KEY = (process.env.ANTHROPIC_API_KEY || "").trim();
 const server = http.createServer((req, res) => {
+   if (req.method === "GET" && req.url === "/health") {
+    res.writeHead(200);
+    res.end("ok");
+    return;
+  }
   if (req.method === "GET") {
     res.writeHead(200, {"Content-Type": "text/html"});
     res.end(fs.readFileSync(path.join(__dirname, "index.html")));
