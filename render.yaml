@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: matp-cert-app
-    env: node
-    buildCommand: ""
-    startCommand: node server.js
-    envVars:
-      - key: ANTHROPIC_API_KEY
-        sync: false
